@@ -1,1 +1,1 @@
-.emacs.d for personal use
+# .emacs.d for personal use

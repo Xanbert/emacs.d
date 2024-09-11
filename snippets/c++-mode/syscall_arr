@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: syscall_array
+# key: syscall_arr
+# --
+ [SYS_$0] = sys_$0,

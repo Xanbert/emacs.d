@@ -17,8 +17,6 @@
 
 (defconst *is-a-mac* (eq system-type 'darwin))
 
-;; use-package
-(setq use-package-always-defer :t)
 
 (let (sub-path-list '())
   (add-to-list 'sub-path-list "basic")

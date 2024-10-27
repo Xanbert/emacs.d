@@ -10,7 +10,7 @@
 (use-package treemacs
   :ensure t
   :defer t
-  :hook (after-init . #'treemacs-find-file)
+  ;; :hook (after-init . #'treemacs-find-file)
   :init
   (with-eval-after-load 'winum
     (define-key winum-keymap (kbd "M-0") #'treemacs-select-window))

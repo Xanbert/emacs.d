@@ -21,6 +21,9 @@
 (if (eq system-type 'gnu/linux)
     (setq package-user-dir "~/.emacs.d/linux-elpa"))
 
+;; use-package
+(setq use-package-always-defer :t)
+
 (let (sub-path-list '())
   (add-to-list 'sub-path-list "basic")
   (add-to-list 'sub-path-list "misc")
@@ -46,10 +49,7 @@
 
 ;; repo
 (require 'repo)
-;; use-package
-(require 'use-package-init)
 
-(setq use-package-always-defer :t)
 ;; misc
 (require 'keyring)
 (require 'unset-key)

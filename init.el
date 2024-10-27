@@ -16,10 +16,6 @@
 (setq gc-cons-threshold (* 128 2000 2000))
 
 (defconst *is-a-mac* (eq system-type 'darwin))
-(if (eq system-type 'berkeley-unix)
-    (setq package-user-dir "~/.emacs.d/fbsd-elpa"))
-(if (eq system-type 'gnu/linux)
-    (setq package-user-dir "~/.emacs.d/linux-elpa"))
 
 ;; use-package
 (setq use-package-always-defer :t)

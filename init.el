@@ -11,6 +11,10 @@
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
 
+;; Make startup faster by reducing the frequency of garbage
+;; collection.  The default is 800 kilobytes.  Measured in bytes.
+(setq gc-cons-threshold (* 128 2000 2000))
+
 (defconst *is-a-mac* (eq system-type 'darwin))
 (if (eq system-type 'berkeley-unix)
     (setq package-user-dir "~/.emacs.d/fbsd-elpa"))
@@ -27,11 +31,11 @@
   (dolist (sub-path sub-path-list)
     (add-to-list 'load-path (expand-file-name sub-path user-emacs-directory))))
 
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-      (init-gc-cons-threshold (* 128 1024 1024)))
-  (setq gc-cons-threshold init-gc-cons-threshold)
-  (add-hook 'emacs-startup-hook
-            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
+;; (let ((normal-gc-cons-threshold (* 20 1024 1024))
+;;       (init-gc-cons-threshold (* 128 1024 1024)))
+;;   (setq gc-cons-threshold init-gc-cons-threshold)
+;;   (add-hook 'emacs-startup-hook
+;;             (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
 (setq custom-file (expand-file-name "basic/custom.el" user-emacs-directory))
 (load custom-file)
@@ -44,6 +48,8 @@
 (require 'repo)
 ;; use-package
 (require 'use-package-init)
+
+(setq use-package-always-defer :t)
 ;; misc
 (require 'keyring)
 (require 'unset-key)
@@ -118,4 +124,8 @@
 ;(require 'spookfox-tabs)
 
 (provide 'init)
+
+;; Make gc pauses faster by decreasing the threshold.
+(setq gc-cons-threshold (* 2 1000 1000))
+
 ;;; init.el ends here

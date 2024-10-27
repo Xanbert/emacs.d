@@ -8,10 +8,12 @@
 ;;; Code:
 
 (use-package hydra
+  :demand t
   :ensure t)
 
 (use-package use-package-hydra
   :ensure t
+  :demand t
   :after hydra)
 
 (provide 'hydra-init)

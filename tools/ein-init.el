@@ -9,8 +9,8 @@
 
 (use-package ein
   :ensure t
-  :config
-  (use-package ein-notebook)
+;  :config
+;  (use-package ein-notebook)
   )
 
 

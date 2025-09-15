@@ -39,7 +39,6 @@
 
 (setq byte-compile-warnings '(cl-functions))
 
-(require 'straight-init)
 
 ;; repo
 (require 'repo)
@@ -57,6 +56,9 @@
 ;(require 'ampc-init)
 (require 'pdf-tools-init)
 (require 'golden-ratio-init)
+(require 'env)
+(require 'aider-init)
+(require 'copilot-init)
 ;; basic
 (require 'disp)
 (require 'input)
